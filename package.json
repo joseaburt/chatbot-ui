@@ -1,0 +1,32 @@
+{
+  "name": "@joseaburto/chatbox-ui",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A simple minimalistic and light chatbot ui that can connect with any API via a set of expose contracts. It is built with vanilla ts, and use the directly the dom so it's fast and light.",
+  "scripts": {
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "build": "tsc -b && vite build",
+    "dev": "vite dev"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "archiver": "^7.0.1",
+    "dotenv": "^17.2.3",
+    "env-cmd": "^10.1.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "formdata-node": "^6.0.3",
+    "globals": "^15.15.0",
+    "sass-embedded": "^1.93.3",
+    "terser": "^5.44.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.2.0"
+  },
+  "packageManager": "pnpm@10.17.1+sha512.17c560fca4867ae9473a3899ad84a88334914f379be46d455cbf92e5cf4b39d34985d452d2583baf19967fa76cb5c17bc9e245529d0b98745721aa7200ecaf7a"
+}
