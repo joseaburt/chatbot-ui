@@ -64,4 +64,18 @@ describe("ChatService", () => {
       await expect(chatService.sendFileMessage(mockFile)).rejects.toThrow("Failed to send file message");
     });
   });
+
+  describe("threadExists", () => {
+    it("should call the fetch method with the correct parameters", async () => {
+      mockFetch.mockResolvedValue({ ok: true } as unknown as Response);
+      const exists = await chatService.threadExists();
+      expect(exists).toBeTruthy();
+    });
+
+    it("should call the fetch method with the correct parameters", async () => {
+      mockFetch.mockResolvedValue({ ok: false } as unknown as Response);
+      const exists = await chatService.threadExists();
+      expect(exists).toBeFalsy();
+    });
+  });
 });

@@ -1,6 +1,16 @@
 import { BaseService } from "./base.service";
 
 export class ChatService extends BaseService {
+  public async threadExists(): Promise<boolean> {
+    const { headers, threadId } = this.getThreadAndHeader();
+
+    const response = await fetch(this.url(`/chats/${threadId}/exists`), {
+      headers,
+    });
+
+    return response.ok;
+  }
+
   public async sendMessage(message: string): Promise<void> {
     const { headers, threadId } = this.getThreadAndHeader();
     headers["Content-Type"] = "application/json";
