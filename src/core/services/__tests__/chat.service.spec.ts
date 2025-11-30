@@ -119,4 +119,26 @@ describe("ChatService", () => {
       await expect(chatService.intChat()).rejects.toThrow("Failed to initialize chat");
     });
   });
+
+  describe("getMessages", () => {
+    it("should call the fetch method with the correct parameters", async () => {
+      mockFetch.mockResolvedValue({ ok: true, json: () => Promise.resolve({ data: [], meta: { total: 0, page: 1, pageSize: 10 } }) } as unknown as Response);
+      await chatService.getMessages({});
+      const [url] = mockFetch.mock.calls[0];
+      expect(url).toBe(`${BaseUrl}/chats/messages/${ThreadId}?`);
+    });
+
+    it("should call the fetch method with the correct query string", async () => {
+      mockFetch.mockResolvedValue({ ok: true, json: () => Promise.resolve({ data: [], meta: { total: 0, page: 1, pageSize: 10 } }) } as unknown as Response);
+      await chatService.getMessages({ page: 1, pageSize: 10, orderBy: "createdAt", order: "desc" });
+      const [url] = mockFetch.mock.calls[0];
+      expect(url).toBe(`${BaseUrl}/chats/messages/${ThreadId}?page=1&pageSize=10&orderBy=createdAt&order=desc`);
+    });
+
+    it("should return the same data as the fetch method", async () => {
+      mockFetch.mockResolvedValue({ ok: true, json: () => Promise.resolve({ data: [], meta: { total: 0, page: 1, pageSize: 10 } }) } as unknown as Response);
+      const messages = await chatService.getMessages({ page: 1, pageSize: 10, orderBy: "createdAt", order: "desc" });
+      expect(messages).toEqual({ data: [], meta: { total: 0, page: 1, pageSize: 10 } });
+    });
+  });
 });

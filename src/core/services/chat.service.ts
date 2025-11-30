@@ -1,7 +1,9 @@
-import { BaseService } from "./base.service";
-import { GeoService } from "./geo.service";
 import { IpService } from "./ip.service";
+import { GeoService } from "./geo.service";
+import { BaseService } from "./base.service";
+import { MessageDTO } from "../dtos/message.dto";
 import { StorageService } from "./storage.service";
+import { CollectionRes, FilterDTO } from "../dtos/base";
 
 export class ChatService extends BaseService {
   public async threadExists(): Promise<boolean> {
@@ -70,5 +72,22 @@ export class ChatService extends BaseService {
     if (!response.ok) {
       throw new Error("Failed to send file message");
     }
+  }
+
+  public async getMessages(query: FilterDTO): Promise<CollectionRes<MessageDTO>> {
+    const { headers, threadId } = this.getThreadAndHeader();
+    headers["Content-Type"] = "application/json";
+
+    const response = await fetch(this.queryUrl(`/chats/messages/${threadId}`, query), {
+      method: "GET",
+      headers,
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to get messages");
+    }
+
+    const data = await response.json();
+    return data as CollectionRes<MessageDTO>;
   }
 }

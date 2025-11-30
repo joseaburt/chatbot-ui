@@ -1,3 +1,4 @@
+import { FilterDTO } from "../dtos/base";
 import { StorageService } from "./storage.service";
 
 export abstract class BaseService {
@@ -14,5 +15,23 @@ export abstract class BaseService {
       "Thread-Id": threadId,
     };
     return { headers, threadId };
+  }
+
+  protected queryToString<T extends FilterDTO>(filters: T): string {
+    const q = new URLSearchParams();
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) {
+        if (value instanceof Date) {
+          q.set(key, value.toISOString());
+        } else {
+          q.set(key, value.toString());
+        }
+      }
+    });
+    return q.toString();
+  }
+
+  protected queryUrl(endpoint: string, filters: FilterDTO) {
+    return `${this.url(endpoint)}?${this.queryToString(filters)}`;
   }
 }
