@@ -1,4 +1,4 @@
-import { IpService } from "./ip.service";
+import { IpService } from "../ip.service";
 
 describe("IpService", () => {
   let mockFetch: jest.Mock;

@@ -1,5 +1,5 @@
-import { ChatService } from "./chat.service";
-import { StorageService } from "./storage.service";
+import { ChatService } from "../chat.service";
+import { StorageService } from "../storage.service";
 
 const ThreadId = "123";
 const BaseUrl = "https://example.com";
