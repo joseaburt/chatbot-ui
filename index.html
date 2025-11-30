@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      function toggleTheme() {
+        const mode = document.documentElement.classList.contains("light") ? "dark" : "light";
+        document.documentElement.classList.remove("light");
+        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.add(mode);
+        document.body.style.backgroundColor = mode === "light" ? "#fff" : "#000";
+      }
+      toggleTheme();
+    </script>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+  </body>
+</html>
