@@ -39,7 +39,7 @@ export class StorageService {
 
   public static deleteThreadId() {
     const key = this.getThreadIdKey();
-    if (!key) throw new Error("Thread ID is not set.");
+    if (!key) return;
     localStorage.removeItem(key);
   }
 }
