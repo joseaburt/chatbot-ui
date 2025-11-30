@@ -4,8 +4,10 @@ export class GeoService {
   public static async findGeoMetaFromIp(ip: string | null): Promise<GeoMetaDTO> {
     if (!ip) return {} as GeoMetaDTO;
     try {
-      const geo = await fetch(`https://ipapi.co/${ip}/json/`).then((res) => res.json());
-      if (!geo.ok) return {} as GeoMetaDTO;
+      const response = await fetch(`https://ipapi.co/${ip}/json/`);
+      if (!response.ok) return {} as GeoMetaDTO;
+      const geo = await response.json();
+
       return {
         country: geo.country_name,
         city: geo.city,
