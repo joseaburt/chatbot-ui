@@ -1,4 +1,7 @@
 import { BaseService } from "./base.service";
+import { GeoService } from "./geo.service";
+import { IpService } from "./ip.service";
+import { StorageService } from "./storage.service";
 
 export class ChatService extends BaseService {
   public async threadExists(): Promise<boolean> {
@@ -9,6 +12,31 @@ export class ChatService extends BaseService {
     });
 
     return response.ok;
+  }
+
+  public async intChat() {
+    try {
+      StorageService.deleteThreadId();
+      const ip = await IpService.getIp();
+      const geo = await GeoService.findGeoMetaFromIp(ip);
+      const browser = GeoService.getBrowserProvider();
+
+      const payload = { ip, browser, ...geo };
+      const response = await fetch(this.url(`/chats/threads`), {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to initialize chat.");
+      }
+
+      const data = await response.json();
+      StorageService.saveThreadId(data.threadId);
+      return data.threadId;
+    } catch (error) {
+      throw new Error("Failed to initialize chat: " + (error as Error).message);
+    }
   }
 
   public async sendMessage(message: string): Promise<void> {
