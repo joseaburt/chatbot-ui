@@ -16,7 +16,6 @@ export class EventBus<E extends EventMap = Record<string, unknown>> {
   }
 
   public emit<K extends keyof E>(event: K, payload: E[K]): void {
-    console.log("emit", event, payload);
     const set = this.listeners.get(event);
     if (!set || set.size === 0) return;
     for (const fn of Array.from(set)) {
