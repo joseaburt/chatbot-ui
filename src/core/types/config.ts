@@ -13,12 +13,14 @@ export interface Palette {
   primaryColor: string;
   secondaryColor: string;
   backgroundColor: string;
-
+  cardColor: string;
   textColor: string;
 }
 
 export interface Theme {
   radius: string;
+  height: `${number}px` | `${number}vh` | `${number}dvh`;
+  width: `${number}px` | `${number}vw` | `${number}dvw`;
   palette: Record<PaletteMode, Palette>;
 }
 

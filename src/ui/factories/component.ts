@@ -7,7 +7,7 @@ export type BaseElementProps<T extends HTMLElement = HTMLElement> = {
   as: keyof HTMLElementTagNameMap;
   childs?: Array<ElementComponent>;
   classes?: string;
-  style?: CSSStyleDeclaration;
+  onInit?: (element: T) => void;
 } & Partial<T>;
 
 export class ElementComponent<T extends HTMLElement = HTMLElement> {
@@ -18,15 +18,16 @@ export class ElementComponent<T extends HTMLElement = HTMLElement> {
     this.template = this.props.template;
   }
 
-  private createHelper(element: T, { className, template, childs, classes, ...rest }: Omit<BaseElementProps<T>, "as">) {
+  private createHelper(element: T, { className, template, childs, classes, onInit, ...rest }: Omit<BaseElementProps<T>, "as">) {
     element.id = this.generateUniqueId();
+    if (className.includes(" ")) throw new Error("Root className cannot contain spaces");
     element.classList.add(className);
     Object.assign(element, rest);
     const localesService = DIContainer.resolve<LocalesService>(LocalesService.name);
     element.innerHTML = localesService.translateTemplate(template);
     if (classes) classes.split(" ").forEach((className) => element.classList.add(className.trim()));
     if (childs) childs.forEach((child) => this.addChild(child));
-
+    if (onInit) onInit(element);
     return element;
   }
 
