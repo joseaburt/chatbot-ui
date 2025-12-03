@@ -1,5 +1,4 @@
-import { DIContainer } from "../../infra/di";
-import { LocalesService } from "../../infra/locales/locales.service";
+import { resolveDependency } from "../../di";
 
 interface ComponentOnInit<K extends keyof HTMLElementTagNameMap, T extends HTMLElementTagNameMap[K] = HTMLElementTagNameMap[K]> {
   element: T;
@@ -29,7 +28,7 @@ export class ElementComponent<K extends keyof HTMLElementTagNameMap, T extends H
     if (className.includes(" ")) throw new Error("Root className cannot contain spaces");
     element.classList.add(className);
     Object.assign(element, rest);
-    const localesService = DIContainer.resolve<LocalesService>(LocalesService.name);
+    const localesService = resolveDependency("LocalesService");
     element.innerHTML = localesService.translateTemplate(template);
     if (classes) classes.split(" ").forEach((className) => element.classList.add(className.trim()));
     if (childs) childs.forEach((child) => this.addChild(child));
