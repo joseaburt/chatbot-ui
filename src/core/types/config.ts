@@ -1,7 +1,7 @@
 export interface Locale {
   headTitle: string;
   headSubtitle: string;
-  headeMessage: string;
+  headMessage: string;
   textboxPlaceholder: string;
   messageSentError: string;
   defaultMessage: string;
