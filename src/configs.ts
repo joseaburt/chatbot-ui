@@ -28,17 +28,17 @@ export const theme: Theme = {
 
 export const locales: Locales = {
   es: {
-    headTitle: "Título de la cabecera",
-    headSubtitle: "Subtítulo de la cabecera",
-    headeMessage: "Mensaje de la cabecera",
+    headTitle: "Chat Soporte",
+    headSubtitle: "¿Tienes alguna pregunta?",
+    headMessage: "Saca el maximo a tu aprendizaje con nuestro asistente AI!",
     textboxPlaceholder: "Placeholder del textbox",
     messageSentError: "Error al enviar el mensaje",
     defaultMessage: "Mensaje por defecto",
   },
   en: {
-    headTitle: "Head Title",
-    headSubtitle: "Head Subtitle",
-    headeMessage: "Head Message",
+    headTitle: "Support Chat",
+    headSubtitle: "Have any questions?",
+    headMessage: "Get the most out of your learning with our AI assistant!",
     textboxPlaceholder: "Textbox Placeholder",
     messageSentError: "Message Sent Error",
     defaultMessage: "Default Message",
