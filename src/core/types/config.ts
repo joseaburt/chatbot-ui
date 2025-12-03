@@ -15,12 +15,15 @@ export interface Palette {
   backgroundColor: string;
   cardColor: string;
   textColor: string;
+  borderColor: string;
 }
 
 export interface Theme {
   radius: string;
   height: `${number}px` | `${number}vh` | `${number}dvh`;
   width: `${number}px` | `${number}vw` | `${number}dvw`;
+  bottom: `${number}rem`;
+  right: `${number}rem`;
   palette: Record<PaletteMode, Palette>;
 }
 
