@@ -1,4 +1,4 @@
-import { Locales, Theme } from "./core/types/config";
+import { Locales, Theme } from "@core/types/config";
 
 export const theme: Theme = {
   radius: "0.65rem",

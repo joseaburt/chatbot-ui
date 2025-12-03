@@ -1,4 +1,4 @@
-import { GeoMetaDTO } from "../dtos/geo.dto";
+import { GeoMetaDTO } from "@core/dtos/geo.dto";
 
 export class GeoService {
   public static async findGeoMetaFromIp(ip: string | null): Promise<GeoMetaDTO> {

@@ -1,4 +1,4 @@
-import { Theme } from "../../core/types/config";
+import { Theme } from "@core/types/config";
 import { insertThemeVariables } from "./theme-variable";
 
 describe("createRoot", () => {

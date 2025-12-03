@@ -1,4 +1,4 @@
-import { GeoService } from "../geo.service";
+import { GeoService } from "@core/services/geo.service";
 
 describe("GeoService", () => {
   let mockFetch: jest.Mock;

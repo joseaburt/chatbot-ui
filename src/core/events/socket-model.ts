@@ -1,6 +1,6 @@
 import { Socket } from "socket.io-client";
 import { WritingUserWsEvent } from "./types";
-import { StorageService } from "../services/storage.service";
+import { StorageService } from "@core/services/storage.service";
 
 export class SocketModel {
   constructor(private readonly socket: Socket, private readonly storageService: StorageService) {}

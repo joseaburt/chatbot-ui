@@ -1,9 +1,9 @@
 import { locales } from "./configs";
-import { DIContainer } from "./infra/di";
-import { MainState } from "./core/state/state";
-import { EventBus } from "./infra/events/event-bus";
-import { LocalesService } from "./infra/locales/locales.service";
-import { StateController } from "./core/state/state.controller";
+import { DIContainer } from "@infra/di";
+import { MainState } from "@core/state/state";
+import { EventBus } from "@infra/events/event-bus";
+import { LocalesService } from "@infra/locales/locales.service";
+import { StateController } from "@core/state/state.controller";
 
 DIContainer.register(LocalesService.name, new LocalesService(locales));
 const bus = new EventBus<{ stateChange: MainState }>();

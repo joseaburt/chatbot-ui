@@ -1,7 +1,16 @@
 import { defineConfig } from 'vite';
+import path from 'path';
 
 export default defineConfig({
   plugins: [],
+  resolve: {
+    alias: {
+      '@ui': path.resolve(__dirname, './src/ui'),
+      '@infra': path.resolve(__dirname, './src/infra'),
+      '@core': path.resolve(__dirname, './src/core'),
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   build: {
     lib: {
       entry: 'src/main.tsx',

@@ -1,9 +1,9 @@
-import { locales } from "../../../../configs";
+import { locales } from "@/configs";
 import { createHeader } from "./header.component";
-import { resolveDependency } from "../../../../di";
+import { resolveDependency } from "@/di";
 import userEvent from "@testing-library/user-event";
 import { getByRole, getByText } from "@testing-library/dom";
-import { createHtmlContainer } from "../../../../test/test.utils";
+import { createHtmlContainer } from "@/test/test.utils";
 
 const stateController = resolveDependency("StateController");
 

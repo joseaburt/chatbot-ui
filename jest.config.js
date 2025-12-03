@@ -12,6 +12,9 @@ module.exports = {
     ],
   },
   moduleNameMapper: {
+    "^@ui/(.*)$": "<rootDir>/src/ui/$1",
+    "^@infra/(.*)$": "<rootDir>/src/infra/$1",
+    "^@core/(.*)$": "<rootDir>/src/core/$1",
     "^@/(.*)$": "<rootDir>/src/$1",
     "\\.(css|scss|sass)$": "identity-obj-proxy",
   },

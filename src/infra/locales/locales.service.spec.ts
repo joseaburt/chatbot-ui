@@ -1,5 +1,5 @@
-import { Locales } from "../../core/types/config";
-import { createHtmlContainer } from "../../test/test.utils";
+import { Locales } from "@core/types/config";
+import { createHtmlContainer } from "@/test/test.utils";
 import { LocalesService } from "./locales.service";
 
 const locales: Locales = {

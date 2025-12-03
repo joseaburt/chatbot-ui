@@ -1,4 +1,4 @@
-import { resolveDependency } from "../../di";
+import { resolveDependency } from "@/di";
 
 interface ComponentOnInit<K extends keyof HTMLElementTagNameMap, T extends HTMLElementTagNameMap[K] = HTMLElementTagNameMap[K]> {
   element: T;

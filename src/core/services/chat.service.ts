@@ -1,9 +1,9 @@
 import { IpService } from "./ip.service";
 import { GeoService } from "./geo.service";
 import { BaseService } from "./base.service";
-import { MessageDTO } from "../dtos/message.dto";
+import { MessageDTO } from "@core/dtos/message.dto";
 import { StorageService } from "./storage.service";
-import { CollectionRes, FilterDTO } from "../dtos/base";
+import { CollectionRes, FilterDTO } from "@core/dtos/base";
 
 export class ChatService extends BaseService {
   public async threadExists(): Promise<boolean> {

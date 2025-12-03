@@ -1,6 +1,6 @@
 import { Socket } from "socket.io-client";
 import { SocketModel } from "./socket-model";
-import { StorageService } from "../services/storage.service";
+import { StorageService } from "@core/services/storage.service";
 
 const mockSocket = {
   on: jest.fn(),

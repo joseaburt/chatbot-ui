@@ -1,4 +1,4 @@
-import { Palette, PaletteMode, Theme } from "../../core/types/config";
+import { Palette, PaletteMode, Theme } from "@core/types/config";
 
 export function insertThemeVariables(theme: Theme, root: HTMLElement) {
   root.classList.add("chatbot-ui");

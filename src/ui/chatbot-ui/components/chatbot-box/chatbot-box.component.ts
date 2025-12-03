@@ -1,6 +1,6 @@
-import { ElementComponent } from "../../../factories/component";
-import { DIContainer } from "../../../../infra/di";
-import { StateController } from "../../../../core/state/state.controller";
+import { ElementComponent } from "@ui/factories/component";
+import { DIContainer } from "@infra/di";
+import { StateController } from "@core/state/state.controller";
 import { createHeader } from "../header/header.component";
 
 const stateController = DIContainer.resolve<StateController>(StateController.name);

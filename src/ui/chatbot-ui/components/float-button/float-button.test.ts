@@ -1,5 +1,5 @@
 import { getByRole } from "@testing-library/dom";
-import { resolveDependency } from "../../../../di";
+import { resolveDependency } from "@/di";
 import { userEvent } from "@testing-library/user-event";
 import { floatButtonFloatButton } from "./float-button.component";
 

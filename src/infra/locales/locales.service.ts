@@ -1,4 +1,4 @@
-import { Locales } from "../../core/types/config";
+import { Locales } from "@core/types/config";
 
 export class LocalesService {
   private readonly indexes: string[] = [];

@@ -1,5 +1,5 @@
 import { MainState } from "./state";
-import { Bus, Handler } from "../types/bus";
+import { Bus, Handler } from "@core/types/bus";
 
 type SetState = ((state: MainState) => MainState) | Partial<MainState>;
 

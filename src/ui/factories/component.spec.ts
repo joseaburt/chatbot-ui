@@ -1,7 +1,7 @@
-import { DIContainer } from "../../infra/di";
+import { DIContainer } from "@infra/di";
 import { ElementComponent } from "./component";
-import { Locales } from "../../core/types/config";
-import { LocalesService } from "../../infra/locales/locales.service";
+import { Locales } from "@core/types/config";
+import { LocalesService } from "@infra/locales/locales.service";
 
 describe("ElementComponent", () => {
   const locales: Locales = {

@@ -1,4 +1,4 @@
-import { ElementComponent } from "../factories/component";
+import { ElementComponent } from "@ui/factories/component";
 import { chatbotBox } from "./components/chatbot-box/chatbot-box.component";
 import { floatButtonFloatButton } from "./components/float-button/float-button.component";
 

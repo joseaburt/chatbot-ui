@@ -1,4 +1,4 @@
-import { StorageService } from "../storage.service";
+import { StorageService } from "@core/services/storage.service";
 
 describe("StorageService", () => {
   beforeEach(() => {

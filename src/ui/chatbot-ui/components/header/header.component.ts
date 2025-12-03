@@ -1,6 +1,6 @@
-import { Close, Sparkles } from "../../../icons";
-import { resolveDependency } from "../../../../di";
-import { ElementComponent } from "../../../factories/component";
+import { Close, Sparkles } from "@ui/icons";
+import { resolveDependency } from "@/di";
+import { ElementComponent } from "@ui/factories/component";
 
 const stateController = resolveDependency("StateController");
 

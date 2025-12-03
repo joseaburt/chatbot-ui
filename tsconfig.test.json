@@ -6,8 +6,15 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "module": "CommonJS",
-    "noEmit": false,
-    "allowImportingTsExtensions": false
+    "noEmit": true,
+    "allowImportingTsExtensions": false,
+    "baseUrl": ".",
+    "paths": {
+      "@ui/*": ["src/ui/*"],
+      "@infra/*": ["src/infra/*"],
+      "@core/*": ["src/core/*"],
+      "@/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*.ts",
