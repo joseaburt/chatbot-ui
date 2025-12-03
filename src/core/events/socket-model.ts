@@ -3,7 +3,7 @@ import { WritingUserWsEvent } from "./types";
 import { StorageService } from "@core/services/storage.service";
 
 export class SocketModel {
-  constructor(private readonly socket: Socket, private readonly storageService: StorageService) {}
+  constructor(private readonly socket: Socket) {}
 
   private addListener<T = unknown>(event: string, handler: (data: T) => void) {
     this.socket.on(event, handler);
@@ -13,7 +13,7 @@ export class SocketModel {
   }
 
   public emitUserIsOnline() {
-    this.socket.emit("user.online", this.storageService.getThreadId());
+    this.socket.emit("user.online", StorageService.getThreadId());
   }
 
   public onMessageSent(handler: (data: { user: { threadId: string } }) => void) {

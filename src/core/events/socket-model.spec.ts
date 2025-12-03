@@ -8,22 +8,20 @@ const mockSocket = {
   emit: jest.fn(),
 };
 
-const mockStorageService = {
-  getThreadId: jest.fn(),
-  saveThreadId: jest.fn(),
-  deleteThreadId: jest.fn(),
-};
-
 describe("SocketModel", () => {
   let socketModel: SocketModel;
   beforeEach(() => {
-    socketModel = new SocketModel(mockSocket as unknown as Socket, mockStorageService as unknown as StorageService);
+    socketModel = new SocketModel(mockSocket as unknown as Socket);
   });
 
   describe("emitUserIsOnline", () => {
     it("should emit the customer is online event", () => {
+      const threadId = "123";
+      jest.spyOn(StorageService, "getThreadIdKey").mockReturnValue("ThreadId");
+      jest.spyOn(StorageService, "getThreadId").mockReturnValue(threadId);
+
       socketModel.emitUserIsOnline();
-      expect(mockSocket.emit).toHaveBeenCalledWith("user.online", mockStorageService.getThreadId());
+      expect(mockSocket.emit).toHaveBeenCalledWith("user.online", threadId);
     });
   });
 

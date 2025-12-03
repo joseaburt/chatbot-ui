@@ -21,7 +21,7 @@ export class StorageService {
     localStorage.setItem("ThreadIdKey", key);
   }
 
-  private static getThreadIdKey() {
+  public static getThreadIdKey() {
     return localStorage.getItem("ThreadIdKey");
   }
 
