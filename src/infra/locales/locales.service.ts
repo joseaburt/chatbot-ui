@@ -7,8 +7,15 @@ export class LocalesService {
     this.indexes = Object.keys(this.locales);
   }
 
+  private getLangFromHtmlTag(): string {
+    const htmlTag = document.querySelector("html");
+
+    if (!htmlTag) return "es";
+    return htmlTag.getAttribute("lang") || "es";
+  }
+
   public translateTemplate(template: string): string {
-    const lang = localStorage.getItem("lang") || "es";
+    const lang = this.getLangFromHtmlTag();
 
     if (!this.indexes.includes(lang)) {
       return template;
